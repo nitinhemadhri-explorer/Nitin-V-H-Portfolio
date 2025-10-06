@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitin V H | IoT Engineer & Renewable Energy Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Gradient Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #312e81 50%, #1e1b4b 75%, #0f172a 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Particle Effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(139, 92, 246, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: calc(100vh - 8rem);
+        }
+
+        .hero-content {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-circle {
+            width: 450px;
+            height: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .profile-circle::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .profile-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-card) 0%, #2d2560 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+            border: 5px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+            position: relative;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .about-stat-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            text-align: center;
+        }
+
+        .about-stat-card h4 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-stat-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin-top: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--bg-dark);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .timeline-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .timeline-card:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .timeline-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-card li {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+        }
+
+        .timeline-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            padding: 2rem;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            font-weight: 500;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+            color: var(--secondary);
+        }
+
+        .badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .contact-info-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content strong {
+            color: var(--primary);
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item-content span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-form-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .profile-circle {
+                width: 350px;
+                height: 350px;
+            }
+
+            .profile-inner {
+                font-size: 6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .profile-inner {
+                font-size: 4.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            nav .logo {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">NITIN V H</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="hero-tag">🚀 Available for Opportunities</span>
+                    <h1>Nitin V H</h1>
+                    <h2>IoT Engineer & Renewable Energy Specialist</h2>
+                    <p>Transforming ideas into impactful solutions through IoT, AI, and sustainable energy. Research Intern at IIT Kharagpur | 3 Patents | MSME Startup CEO | Building the future, one innovation at a time.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Let's Connect →</a>
+                        <a href="#projects" class="btn btn-secondary">View My Work</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/nitin-v-h" target="_blank" class="social-icon" title="LinkedIn">in</a>
+                        <a href="mailto:220901066@rajalakshmi.edu.in" class="social-icon" title="Email">✉</a>
+                        <a href="tel:+918669098651" class="social-icon" title="Phone">📞</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-circle">
+                        <div class="profile-inner">NVH</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">8.65</span>
+                    <span class="stat-label">CGPA (B.E.)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9.50</span>
+                    <span class="stat-label">CGPA (Honors)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Patents</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6+</span>
+                    <span class="stat-label">Major Projects</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">WHO I AM</div>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">A passionate engineer combining technical expertise with innovation to create meaningful impact</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a <span class="highlight">final-year B.E. (Honors) student in Electrical and Electronics Engineering</span> at Rajalakshmi Engineering College, Anna University, with a stellar academic record and a passion for cutting-edge technology.</p>
+                    
+                    <p>Currently working as a <span class="highlight">Research Intern at IIT Kharagpur's SWAN Laboratory</span> under Prof. Sudip Misra, where I'm developing AI-powered mental health monitoring applications using machine learning and computer vision—selected among 25 from 17,500 candidates.</p>
+                    
+                    <p>My expertise spans <span class="highlight">IoT systems, renewable energy, embedded development, and AI/ML</span>. I've contributed to multiple patented innovations and founded HIREC, an MSME-registered startup.</p>
+                    
+                    <p>As <span class="highlight">Secretary of IEEE REC, E-Cell REC, and Technical Lead of SEEE</span>, I balance technical excellence with leadership, driving innovation in every role I undertake.</p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="about-stat-card">
+                        <h4>17,500→25</h4>
+                        <p>Selected for IIT Kharagpur from 17,500 NPTEL candidates</p>
+                    </div>
+                    <div class="about-stat-card">
+                        <h4>2x NPTEL Star</h4>
+                        <p>Recognized twice for exceptional performance</p>
+                    </div>
+                    <div class="about-stat-card">
+                        <h4>TOP 50</h4>
+                        <p>Smart India Hackathon 2023</p>
+                    </div>
+                    <div class="about-stat-card">
+                        <h4>MSME CEO</h4>
+                        <p>Founded & Leading HIREC Startup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">MY EXPERTISE</div>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">A comprehensive toolkit spanning software, hardware, and interpersonal capabilities</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Software Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">AI Frameworks</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Hardware & IoT</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">IoT Systems</span>
+                        <span class="skill-tag">Arduino Uno</span>
+                        <span class="skill-tag">ESP32</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                        <span class="skill-tag">Circuit Design</span>
+                        <span class="skill-tag">Soldering</span>
+                        <span class="skill-tag">Microcontrollers</span>
+                        <span class="skill-tag">Sensors</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">☀️</div>
+                    <h3>Renewable Energy</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Solar Technology</span>
+                        <span class="skill-tag">Solar Panel Design</span>
+                        <span class="skill-tag">Battery Pack Design</span>
+                        <span class="skill-tag">BMS</span>
+                        <span class="skill-tag">Performance Testing</span>
+                        <span class="skill-tag">Quality Assurance</span>
+                        <span class="skill-tag">HVAC Systems</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Engineering & Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Product Design</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Blender</span>
+                        <span class="skill-tag">Testing</span>
+                        <span class="skill-tag">R&D</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">CAD</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3>Leadership & Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Team Management</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Project Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌍</div>
+                    <h3>Additional Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Research</span>
+                        <span class="skill-tag">Technical Writing</span>
+                        <span class="skill-tag">German (A1)</span>
+                        <span class="skill-tag">Entrepreneurship</span>
+                        <span class="skill-tag">Innovation</span>
+                        <span class="skill-tag">Mentoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">MY JOURNEY</div>
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">Building expertise through hands-on internships, research, and leadership roles</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Research Intern</h3>
+                        <div class="timeline-company">IIT Kharagpur - SWAN Laboratory</div>
+                        <span class="timeline-date">June 2025 - Present</span>
+                        <p>Working under Prof. Sudip Misra on cutting-edge Human-Computer Interaction research in AI and mental health.</p>
+                        <ul>
+                            <li>Developing machine learning models for facial expression analysis and mental health detection</li>
+                            <li>Building cross-platform mobile app (iOS/Android) using Kotlin for real-world deployment</li>
+                            <li>Selected among 25 from 17,500 candidates through NPTEL Industry 4.0 & IIoT certification</li>
+                            <li>Co-authoring research paper for publication in top-tier conference</li>
+                            <li>App deployed at IIT Kharagpur counseling services with expansion plans to all IITs/NITs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Project Intern</h3>
+                        <div class="timeline-company">SWAAADLE Tech Pvt Ltd, Chennai</div>
+                        <span class="timeline-date">July - August 2024</span>
+                        <ul>
+                            <li>Developed solar LED brick lights with complete assembly and quality testing</li>
+                            <li>Designed Solar-Powered Voltage/Current Measurement System using Arduino Uno & ESP32</li>
+                            <li>Utilized INA219 sensor and voltage divider circuits for solar panel performance analysis</li>
+                            <li>Enhanced skills in soldering, quality assurance, and photovoltaic systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Technical Lead</h3>
+                        <div class="timeline-company">Society of Electrical and Electronics Engineering (SEEE)</div>
+                        <span class="timeline-date">July 2024 - August 2025</span>
+                        <p>Led technical initiatives, workshops, and projects for the electrical engineering student community.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Project Intern</h3>
+                        <div class="timeline-company">JP Solar, Chengalpattu</div>
+                        <span class="timeline-date">January - February 2024</span>
+                        <ul>
+                            <li>Hands-on experience in complete solar panel manufacturing lifecycle</li>
+                            <li>Performed laser cutting, tabber stringing, and efficiency testing</li>
+                            <li>Developed Solar Powered Lightweight Grass Cutter (Patent Filed)</li>
+                            <li>Applied testing methodologies and quality assurance protocols</li>
+                            <li>Collaborated with team of 10-12 professionals on production processes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Secretary</h3>
+                        <div class="timeline-company">IEEE Student Branch REC (61471)</div>
+                        <span class="timeline-date">October 2024 - Present</span>
+                        <p>Leading technical activities, events, and member engagement for one of India's premier IEEE student branches.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Chief Executive Officer (CEO)</h3>
+                        <div class="timeline-company">HIREC - MSME Registered Startup</div>
+                        <span class="timeline-date">June 2024 - Present</span>
+                        <p>Founded and leading an MSME-registered startup at Rajalakshmi Engineering College, focusing on innovative engineering solutions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>Secretary</h3>
+                        <div class="timeline-company">E-Cell Rajalakshmi Engineering College</div>
+                        <span class="timeline-date">June 2025 - Present</span>
+                        <p>Driving entrepreneurship initiatives, startup mentorship, and innovation programs across campus.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <h3>ENSAV Monitor</h3>
+                        <div class="timeline-company">The Institution of Green Engineers (IGEN)</div>
+                        <span class="timeline-date">September 2023 - Present</span>
+                        <p>Promoting sustainable engineering practices and environmental awareness initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">INNOVATIONS</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Transforming ideas into impactful solutions across AI, IoT, and renewable energy</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🧠 Mental Health Monitoring App using AI</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>AI-powered mobile application detecting anxiety and depression through facial expression analysis and psychological assessments. Deployed at IIT Kharagpur counseling services.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">Kotlin</span>
+                            <span class="project-tag">Android/iOS</span>
+                            <span class="project-tag">TensorFlow</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="badge">✓ Deployed</span>
+                            <a href="#" class="project-link">Research Paper →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>☀️ Solar Powered Lightweight Grass Cutter</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Eco-friendly, low-cost grass cutter powered entirely by solar energy. Built and deployed for college campus use with positive feedback for future funding.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Solar Energy</span>
+                            <span class="project-tag">Product Design</span>
+                            <span class="project-tag">Blender</span>
+                            <span class="project-tag">Prototyping</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="badge">Patent Filed</span>
+                            <span style="color: var(--text-secondary); font-size: 0.85rem;">App No: 424798-001</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>📹 Camera-Based Side View System</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Innovative solution replacing traditional vehicle mirrors with dual-camera setup to reduce aerodynamic drag, eliminate blind spots, and enhance driver visibility.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">ESP32</span>
+                            <span class="project-tag">Computer Vision</span>
+                            <span class="project-tag">Electric Vehicles</span>
+                            <span class="project-tag">Aerodynamics</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="badge-warning badge">In Development</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🚗 Automatic Adjustment of Vehicle Mirrors & Headlights</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Advanced automotive IoT system for dynamic adjustment of side-view mirrors and headlights based on vehicle trajectory using gyroscopic sensors.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Gyroscopic Sensors</span>
+                            <span class="project-tag">Servo Motors</span>
+                            <span class="project-tag">Automotive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🍺 Drunk Driver Detection System</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Safety IoT system using alcohol detection sensors that automatically alert nearby police stations with location data to prevent accidents.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Safety Systems</span>
+                            <span class="project-tag">GPS</span>
+                            <span class="project-tag">Sensors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>⚡ Solar Voltage/Current Measurement System</h3>
+                    </div>
+                    <div class="project-body">
+                        <p>Real-time solar panel performance monitoring system using INA219 sensor, voltage dividers, and ESP32 for data analysis and optimization.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Arduino</span>
+                            <span class="project-tag">ESP32</span>
+                            <span class="project-tag">INA219</span>
+                            <span class="project-tag">Solar Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patents & Achievements -->
+            <div class="section-header" style="margin-top: 6rem;">
+                <div class="section-tag">ACHIEVEMENTS</div>
+                <h2 class="section-title">Patents & Recognition</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">💡 Detachable Strap Belt for Fitness Monitoring</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Wearable device combining fitness tracking with personal safety features</p>
+                    <span class="badge">✓ Patent Granted</span>
+                    <span style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">App No: 386228-001</span>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">⌚ Smart Watch with Blood Sugar Monitoring</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Non-invasive glucose monitoring technology integrated into smartwatch</p>
+                    <span class="badge">✓ Patent Granted</span>
+                    <span style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 1rem;">App No: 403395-001</span>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">🏆 NPTEL Star Recognition (2x)</h3>
+                    <p style="color: var(--text-secondary);">Recognized twice as NPTEL STAR for exceptional performance in online certification courses</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">💻 Smart India Hackathon 2023</h3>
+                    <p style="color: var(--text-secondary);">Selected for Internal SIH and ranked in TOP 50 among all participants</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">📊 Academic Excellence</h3>
+                    <p style="color: var(--text-secondary);">Top 10% CGPA - Maintaining 8.65 (B.E.) and 9.50 (Honors)</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">📜 Multiple Certifications</h3>
+                    <p style="color: var(--text-secondary);">Industrial IoT 4.0, Intro to IoT, Entrepreneurship Essentials, German A1 (NPTEL)</p>
+                </div>
+            </div>
+
+            <!-- Industrial Training -->
+            <div class="section-header" style="margin-top: 6rem;">
+                <div class="section-tag">PRACTICAL EXPOSURE</div>
+                <h2 class="section-title">Industrial Visits & Training</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">⚡ North Chennai Thermal Power Station</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">TANGEDCO</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">5-Day training (July 24-28, 2023) on electrical machines, power systems, and thermal generation</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">❄️ Daikin ACDC India Pvt. Ltd</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">Sricity, Andhra Pradesh</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">3-Day training (April 28-30, 2025) on HVAC, energy-efficient systems, and sustainable climate control</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">🔧 Toshniwal Bros (HYD) Pvt Ltd</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">Sriperumbudur, Tamil Nadu</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Electrical equipment manufacturing and quality control processes</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">🚢 Ennore Port Authority</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">Chennai, Tamil Nadu</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Port electrical systems, power distribution, and heavy machinery operations</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">🏭 Sri Rajeshwari Industrial Plastics</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">Oragadam, Tamil Nadu</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Industrial automation, plastic manufacturing, and quality assurance</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">🔨 Bosch Power Tools</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">Chennai, Tamil Nadu</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Precision engineering, power tool manufacturing, and testing methodologies</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">🤖 Axis Global Automation</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">Chennai, Tamil Nadu</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Industrial automation systems, PLC programming, and control systems</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">🔋 5-Day BMS Workshop</h3>
+                    <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem;">REC Alumni (Sept 4-8, 2023)</p>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Battery Management Systems, pack design calculations, and spot welding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">LET'S TALK</div>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">I'm always open to discussing new projects, opportunities, or collaborations</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>Let's Connect!</h3>
+                    <p>Whether you're looking for an IoT engineer, renewable energy specialist, or a passionate innovator to join your team—let's talk! I'm excited to bring my skills to challenging projects and collaborative environments.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-item-content">
+                            <strong>Email</strong>
+                            <span>220901066@rajalakshmi.edu.in</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-item-content">
+                            <strong>Phone</strong>
+                            <span>+91 8669098651</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-item-content">
+                            <strong>Location</strong>
+                            <span>Kancheepuram, Tamil Nadu, India</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-item-content">
+                            <strong>LinkedIn</strong>
+                            <span><a href="https://www.linkedin.com/in/nitin-v-h" target="_blank" style="color: var(--primary); text-decoration: none;">linkedin.com/in/nitin-v-h</a></span>
+                        </div>
+                    </div>
+
+                    <div class="social-icons" style="margin-top: 2rem;">
+                        <a href="https://www.linkedin.com/in/nitin-v-h" target="_blank" class="social-icon">in</a>
+                        <a href="mailto:220901066@rajalakshmi.edu.in" class="social-icon">✉</a>
+                        <a href="tel:+918669098651" class="social-icon">📞</a>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell me about your project or opportunity..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/nitin-v-h" target="_blank" class="social-icon">in</a>
+                <a href="mailto:220901066@rajalakshmi.edu.in" class="social-icon">✉</a>
+                <a href="tel:+918669098651" class="social-icon">📞</a>
+            </div>
+            <p class="footer-text">© 2025 Nitin V H. Built with passion for innovation. All rights reserved.</p>
+            <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.85rem;">IoT Engineer | Renewable Energy Specialist | Research Intern @ IIT Kharagpur</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            const mailtoLink = `mailto:220901066@rajalakshmi.edu.in?subject=${subject}&body=${body}`;
+            
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you! Your email client will open shortly.');
+            event.target.reset();
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create particles
+            createParticles();
+
+            // Observe cards and sections
+            const elementsToAnimate = document.querySelectorAll(
+                '.card, .skill-card, .timeline-card, .project-card, .about-stat-card'
+            );
+            
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add stagger effect to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLink?.classList.add('active');
+                } else {
+                    navLink?.classList.remove('active');
+                }
+            });
+        });
+
+        // Add active state styling
+        const style = document.createElement('style');
+        style.textContent = `
+            nav a.active {
+                color: var(--primary) !important;
+            }
+            nav a.active::before {
+                width: 100% !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.5;
+            }
+        });
+
+        // Add typing effect to hero title (optional enhancement)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            // typeWriter(heroTitle, originalText, 80); // Uncomment for typing effect
+        });
+
+        // Mobile menu toggle (if needed for smaller screens)
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const nav = document.querySelector('nav ul');
+                const menuBtn = document.createElement('button');
+                menuBtn.innerHTML = '☰';
+                menuBtn.style.cssText = `
+                    display: none;
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 2rem;
+                    top: 1rem;
+                `;
+                
+                if (window.innerWidth <= 768) {
+                    menuBtn.style.display = 'block';
+                    nav.style.display = 'none';
+                }
+                
+                menuBtn.addEventListener('click', () => {
+                    nav.style.display = nav.style.display === 'none' ? 'flex' : 'none';
+                    nav.style.flexDirection = 'column';
+                    nav.style.position = 'absolute';
+                    nav.style.top = '100%';
+                    nav.style.left = '0';
+                    nav.style.right = '0';
+                    nav.style.background = 'rgba(15, 23, 42, 0.98)';
+                    nav.style.padding = '2rem';
+                });
+                
+                document.querySelector('nav .container').appendChild(menuBtn);
+            }
+        };
+
+        // Handle responsive behavior
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                location.reload(); // Simple approach for demo
+            }, 250);
+        });
+
+        // Smooth reveal for stats
+        const animateStats = () => {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = parseFloat(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target.toFixed(2);
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = current.toFixed(2);
+                    }
+                }, 30);
+            });
+        };
+
+        // Trigger stats animation when visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsBar = document.querySelector('.stats-bar');
+        if (statsBar) {
+            statsObserver.observe(statsBar);
+        }
+
+        // Add cursor trail effect (optional - can be removed if too much)
+        let cursorTrail = [];
+        const maxTrailLength = 10;
+
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth > 768) { // Only on desktop
+                const trail = document.createElement('div');
+                trail.style.cssText = `
+                    position: fixed;
+                    width: 8px;
+                    height: 8px;
+                    background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, transparent 70%);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    transform: translate(-50%, -50%);
+                    animation: fadeTrail 0.5s ease-out forwards;
+                `;
+                
+                document.body.appendChild(trail);
+                cursorTrail.push(trail);
+                
+                if (cursorTrail.length > maxTrailLength) {
+                    const oldTrail = cursorTrail.shift();
+                    oldTrail.remove();
+                }
+            }
+        });
+
+        // Add trail fade animation
+        const trailStyle = document.createElement('style');
+        trailStyle.textContent = `
+            @keyframes fadeTrail {
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(2);
+                }
+            }
+        `;
+        document.head.appendChild(trailStyle);
+
+        // Console easter egg
+        console.log('%c👋 Hello there!', 'font-size: 24px; color: #6366f1; font-weight: bold;');
+        console.log('%cNitin V H | IoT Engineer & Renewable Energy Specialist', 'font-size: 14px; color: #8b5cf6;');
+        console.log('%cLooking for talented developers? Let\'s connect!', 'font-size: 12px; color: #cbd5e1;');
+        console.log('%c📧 220901066@rajalakshmi.edu.in', 'font-size: 12px; color: #10b981;');
+    </script>
+</body>
+</html>
